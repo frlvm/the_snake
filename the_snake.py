@@ -97,23 +97,23 @@ class Snake(GameObject):
         """Метод для перемещения змеи"""
         if self.direction == RIGHT:
             self.positions.insert(
-                0, (self.get_head_position()[0] + 20,
+                0, ((self.get_head_position()[0] + 20) % 640,
                     self.get_head_position()[1])
             )
         if self.direction == LEFT:
             self.positions.insert(
-                0, (self.get_head_position()[0] - 20,
+                0, ((self.get_head_position()[0] - 20) % 640,
                     self.get_head_position()[1])
             )
         if self.direction == UP:
             self.positions.insert(
                 0, (self.get_head_position()[0],
-                    self.get_head_position()[1] - 20)
+                    (self.get_head_position()[1] - 20) % 480)
             )
         if self.direction == DOWN:
             self.positions.insert(
                 0, (self.get_head_position()[0],
-                    self.get_head_position()[1] + 20)
+                    (self.get_head_position()[1] + 20) % 480)
             )
         self.last = self.positions[-1]
         self.positions.pop()
